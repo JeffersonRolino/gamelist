@@ -2,7 +2,7 @@ package jeffersonrolino.com.github.gamelist.dtos;
 
 import jeffersonrolino.com.github.gamelist.entities.Game;
 
-public class GameDTO {
+public class GameMinimalDTO {
     private Long id;
     private String title;
     private Integer year;
@@ -12,10 +12,10 @@ public class GameDTO {
     /******************************************************************************************************************
      * CONSTRUCTORS
      ******************************************************************************************************************/
-    public GameDTO() {
+    public GameMinimalDTO() {
     }
 
-    public GameDTO(Long id, String title, Integer year, String imgUrl, String shortDescription) {
+    public GameMinimalDTO(Long id, String title, Integer year, String imgUrl, String shortDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -23,7 +23,7 @@ public class GameDTO {
         this.shortDescription = shortDescription;
     }
 
-    public GameDTO(Game game){
+    public GameMinimalDTO(Game game){
         this.id = game.getId();
         this.title = game.getTitle();
         this.year = game.getYear();

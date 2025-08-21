@@ -1,6 +1,6 @@
 package jeffersonrolino.com.github.gamelist.services;
 
-import jeffersonrolino.com.github.gamelist.dtos.GameDTO;
+import jeffersonrolino.com.github.gamelist.dtos.GameMinimalDTO;
 import jeffersonrolino.com.github.gamelist.entities.Game;
 import jeffersonrolino.com.github.gamelist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,9 @@ public class GameService {
     @Autowired
     private GameRepository gameRepository;
 
-    public List<GameDTO> findAll(){
+    public List<GameMinimalDTO> findAll(){
         List<Game> games = gameRepository.findAll();
-        List<GameDTO> gameDTOS = games.stream().map(game -> new GameDTO(game)).toList();
-        return gameDTOS;
+        List<GameMinimalDTO> gameMinimalDTOS = games.stream().map(game -> new GameMinimalDTO(game)).toList();
+        return gameMinimalDTOS;
     }
 }

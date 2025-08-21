@@ -1,6 +1,6 @@
 package jeffersonrolino.com.github.gamelist.controllers;
 
-import jeffersonrolino.com.github.gamelist.dtos.GameDTO;
+import jeffersonrolino.com.github.gamelist.dtos.GameMinimalDTO;
 import jeffersonrolino.com.github.gamelist.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +17,8 @@ public class GameController {
     private GameService gameService;
 
     @GetMapping
-    public List<GameDTO> findAll(){
-        List<GameDTO> games = gameService.findAll();
+    public List<GameMinimalDTO> findAll(){
+        List<GameMinimalDTO> games = gameService.findAll();
         return games;
     }
 }
