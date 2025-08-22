@@ -3,6 +3,7 @@ package jeffersonrolino.com.github.gamelist.services;
 import jeffersonrolino.com.github.gamelist.dtos.GameDTO;
 import jeffersonrolino.com.github.gamelist.dtos.GameMinimalDTO;
 import jeffersonrolino.com.github.gamelist.entities.Game;
+import jeffersonrolino.com.github.gamelist.projections.GameMinProjection;
 import jeffersonrolino.com.github.gamelist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,11 @@ public class GameService {
     public GameDTO findById(Long id){
         Game game = gameRepository.findById(id).get();
         return new GameDTO(game);
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinimalDTO> findByList(Long listId){
+        List<GameMinProjection> gamesMinProjections = gameRepository.searchByList(listId);
+        return gamesMinProjections.stream().map(game -> new GameMinimalDTO(game)).toList();
     }
 }

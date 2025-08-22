@@ -1,6 +1,7 @@
 package jeffersonrolino.com.github.gamelist.dtos;
 
 import jeffersonrolino.com.github.gamelist.entities.Game;
+import jeffersonrolino.com.github.gamelist.projections.GameMinProjection;
 
 public class GameMinimalDTO {
     private Long id;
@@ -29,6 +30,14 @@ public class GameMinimalDTO {
         this.year = game.getYear();
         this.imgUrl = game.getImgUrl();
         this.shortDescription = game.getShortDescription();
+    }
+
+    public GameMinimalDTO(GameMinProjection gameMinProjection){
+        this.id = gameMinProjection.getId();
+        this.title = gameMinProjection.getTitle();
+        this.year = gameMinProjection.getYear();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.shortDescription = gameMinProjection.getShortDescription();
     }
 
 
